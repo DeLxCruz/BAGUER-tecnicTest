@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BAGUER | Home</title>
+    <link href="../output.css" rel="stylesheet">
+    <script type="module" defer src="../js/getEmployees.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <div class="overflow-x-auto">
+        <table class="table">
+            <!-- head -->
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Detalle</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <dialog id="employeeModal" class="modal">
+        <div class="modal-box">
+            <h3 class="font-bold text-lg employee-name"></h3>
+            <p class="py-4">Información de detalle:</p>
+            <div class="employee-details space-y-4">
+                <p>Genero: <span class="employee-gender"></span></p>
+                <p>Foto de perfil:</p>
+                <img class="employee-avatar" src="" alt="Foto de perfil del empleado">
+                <!-- Agrega más campos de detalles según sea necesario -->
+            </div>
+            <div class="modal-action">
+                <button class="btn" onclick="employeeModal.close()">Cerrar</button>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- Open the modal using ID.showModal() method -->
+    <button class="btn bg-emerald-300" onclick="my_modal_1.showModal()">Registrar Usuario</button>
+    <dialog id="my_modal_1" class="modal">
+        <div class="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100 modal-box">
+            <form class="card-body">
+                <div class="form-control">
+                    <label class="label">
+                        <span class="label-text">Usario</span>
+                    </label>
+                    <input type="email" placeholder="email" class="input input-bordered" required />
+                </div>
+                <div class="form-control">
+                    <label class="label">
+                        <span class="label-text">Contraseña</span>
+                    </label>
+                    <input type="password" placeholder="password" class="input input-bordered" required />
+                </div>
+                <div class="form-control">
+                    <label class="label">
+                        <span class="label-text">Nombre</span>
+                    </label>
+                    <input type="text" placeholder="Nombre Usuario" class="input input-bordered" required />
+                </div>
+                <div class="form-control mt-6">
+                    <button class="btn btn-primary">Login</button>
+                </div>
+            </form>
+            <div class="modal-action">
+                <form method="dialog">
+                    <!-- if there is a button in form, it will close the modal -->
+                    <button class="btn">Close</button>
+                </form>
+            </div>
+        </div>
+    </dialog>
+</body>
+
+</html>
