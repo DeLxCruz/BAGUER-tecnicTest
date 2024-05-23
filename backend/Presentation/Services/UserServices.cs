@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using Application.Repositories;
@@ -55,7 +56,10 @@ namespace Presentation.Services
                 new("uid", user.IdUser.ToString())
             };
 
-            claims.Add(new Claim(ClaimTypes.Role, user.Role.Description));
+            if (user.Role != null)
+            {
+                claims.Add(new Claim(ClaimTypes.Role, user.Role.Description));
+            }
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwt.Key));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -91,18 +95,14 @@ namespace Presentation.Services
                     dataUser.Token = jwtSecurityToken;
                     dataUser.UserName = user.Username;
 
-                    return dataUser;
-                }
+                    dataUser.RefreshToken = GenerateRefreshToken();
+                    dataUser.RefreshTokenExpiration = DateTime.UtcNow.AddDays(7);
 
-                else if (result == PasswordVerificationResult.Failed)
-                {
-                    dataUser.IsAuthenticated = false;
-                    dataUser.Message = "Invalid authentication";
                     return dataUser;
                 }
 
                 dataUser.IsAuthenticated = false;
-                dataUser.Message = "Password hash could not be verified";
+                dataUser.Message = "Invalid Credentials";
                 return dataUser;
             }
 
@@ -114,6 +114,16 @@ namespace Presentation.Services
         public async Task<Role> GetRoleByNameAsync(string Description)
         {
             return await _unitOfWork.Roles.GetRoleByNameAsync(Description);
+        }
+
+        private string GenerateRefreshToken()
+        {
+            var randomNumber = new byte[32];
+            using (var rng = RandomNumberGenerator.Create())
+            {
+                rng.GetBytes(randomNumber);
+                return Convert.ToBase64String(randomNumber);
+            }
         }
     }
 }

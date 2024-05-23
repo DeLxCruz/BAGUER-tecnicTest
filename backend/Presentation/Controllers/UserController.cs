@@ -66,10 +66,23 @@ namespace Presentation.Controllers
 
             if (result.IsAuthenticated)
             {
-                SetRefreshTokenInCookie(result.RefreshToken);
-                return Ok(result);
+                if (!string.IsNullOrEmpty(result.RefreshToken))
+                {
+                    SetRefreshTokenInCookie(result.RefreshToken);
+                }
+
+                return Ok(
+                    new
+                    {
+                        result.IsAuthenticated,
+                        token = result.Token,
+                        username = result.UserName,
+                        role = result.Roles,
+                        result.RefreshToken,
+                    }
+                );
             }
-            return BadRequest(new { Message = result.Message });
+            return Unauthorized(result);
 
         }
 
