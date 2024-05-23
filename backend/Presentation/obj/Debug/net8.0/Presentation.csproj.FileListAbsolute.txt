@@ -119,3 +119,5 @@ C:\Users\DeLaCruz\Desktop\BAGUER-tecnicTest\backend\Presentation\obj\Debug\net8.
 C:\Users\DeLaCruz\Desktop\BAGUER-tecnicTest\backend\Presentation\obj\Debug\net8.0\ref\Presentation.dll
 C:\Users\DeLaCruz\Desktop\BAGUER-tecnicTest\backend\Presentation\bin\Debug\net8.0\AutoMapper.dll
 C:\Users\DeLaCruz\Desktop\BAGUER-tecnicTest\backend\Presentation\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\DeLaCruz\Desktop\BAGUER-tecnicTest\backend\Presentation\bin\Debug\net8.0\Microsoft.AspNetCore.Mvc.Versioning.dll
+C:\Users\DeLaCruz\Desktop\BAGUER-tecnicTest\backend\Presentation\obj\Debug\net8.0\Presentation.sourcelink.json

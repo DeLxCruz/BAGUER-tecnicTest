@@ -28,7 +28,7 @@ namespace Persistence.Configuration
             builder.Property(u => u.Password)
                 .HasColumnName("Password")
                 .HasColumnType("varchar")
-                .HasMaxLength(50);
+                .HasMaxLength(255);
 
             builder.Property(u => u.Name)
                 .HasColumnName("Name")

@@ -10,3 +10,4 @@ C:\Users\DeLaCruz\Desktop\BAGUER-tecnicTest\backend\Domain\obj\Debug\net8.0\Doma
 C:\Users\DeLaCruz\Desktop\BAGUER-tecnicTest\backend\Domain\obj\Debug\net8.0\refint\Domain.dll
 C:\Users\DeLaCruz\Desktop\BAGUER-tecnicTest\backend\Domain\obj\Debug\net8.0\Domain.pdb
 C:\Users\DeLaCruz\Desktop\BAGUER-tecnicTest\backend\Domain\obj\Debug\net8.0\ref\Domain.dll
+C:\Users\DeLaCruz\Desktop\BAGUER-tecnicTest\backend\Domain\obj\Debug\net8.0\Domain.sourcelink.json

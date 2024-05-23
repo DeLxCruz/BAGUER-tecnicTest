@@ -53,7 +53,7 @@ namespace Persistence.Data.Migrations
                         .HasColumnName("Name");
 
                     b.Property<string>("Password")
-                        .HasMaxLength(50)
+                        .HasMaxLength(255)
                         .HasColumnType("varchar")
                         .HasColumnName("Password");
 
